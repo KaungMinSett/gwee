@@ -60,7 +60,7 @@ nav .navbar-nav li a{
 
 .card-title{
     font-family: 'Nunito Sans';
-    color: grey;
+    color: #ed6961;
 
 
 }
@@ -75,7 +75,7 @@ nav .navbar-nav li a{
     list-style: none;
 }
 
-#cover{
+.cover{
     opacity:0.8;
 }
 
@@ -85,4 +85,9 @@ nav .navbar-nav li a{
 
   .my-toggler.navbar-toggler {
     border-color: rgb(237,105,97);
+  }
+
+  .img-fluid{
+      max-width: 100%;
+     height: auto;
   }
