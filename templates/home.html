@@ -11,12 +11,12 @@
         <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
 
 
-        <!-- <link href="styles.css" rel="stylesheet"> -->
+        <link href="styles.css" rel="stylesheet">
         <title>Gwee Gwee</title>
     </head>
 <body>
-
-    <nav class="navbar fixed-top navbar-expand-lg">
+<section>
+<nav class="navbar sticky-top navbar-expand-lg">
       <div class="container-fluid">
         <a  class="navbar-brand" href="http://localhost:8080/templates/index.html">
           <img src = "/static/img/Gwee_gwee.png"  alt = "Gwee Gwee logo" width="230" height = "75" >
@@ -47,40 +47,47 @@
               </button>
             </li>
           </ul>
-            <!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Link
-              </a> -->
-              <!-- <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
-            </li> -->
-          </ul>
 
         </div>
       </div>
-    </nav>
-    <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-        kms
 
+    </nav>
+
+      <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show column  active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="card w-75 justify-content-center">
+              <img src="/static/img/food.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+            <div class="card w-75 justify-content-center">
+              <img src="/static/img/vegetables.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+
+          </div>
+          <div class="tab-pane fade" id="pills-trend" role="tabpanel" aria-labelledby="pills-trend-tab">
+            tth
+          </div>
+          <div class="tab-pane fade" id="pills-promotion" role="tabpanel" aria-labelledby="pills-promotion-tab">
+            pp
+          </div>
+          <div class="tab-pane fade" id="pills-alert" role="tabpanel" aria-labelledby="pills-alert-tab">
+            mkk
+          </div>
       </div>
-      <div class="tab-pane fade" id="pills-trend" role="tabpanel" aria-labelledby="pills-trend-tab">
-        tth
-      </div>
-      <div class="tab-pane fade" id="pills-promotion" role="tabpanel" aria-labelledby="pills-promotion-tab">
-        pp
-      </div>
-      <div class="tab-pane fade" id="pills-alert" role="tabpanel" aria-labelledby="pills-alert-tab">
-        mkk
-      </div>
-    </div>
+
+
+
+  </section>
+
 
 
 
