@@ -68,7 +68,7 @@ nav .navbar-nav li a{
 .card {
     margin: 0 auto; /* Added */
     float: none; /* Added */
-    margin-bottom: 10px; /* Added */
+    margin-bottom: 20px; /* Added */
 }
 
 .nav-item{
@@ -91,3 +91,9 @@ nav .navbar-nav li a{
       max-width: 100%;
      height: auto;
   }
+
+  .home-card {
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+}
