@@ -97,3 +97,17 @@ nav .navbar-nav li a{
     height: 30vw;
     object-fit: cover;
 }
+
+@media (min-width: 1000px) {
+
+    .desk-view{
+        margin-right:200px;
+
+
+    }
+    .desk-nav{
+        width: 850px;
+    }
+
+
+ }
