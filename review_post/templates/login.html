@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section>
+        <main>
+            <div  class="container">
+                <!-- <form id = "form-login">
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="exampleInputText">
+                    </div>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">I understand policy of gwee gwee</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form> -->
+                  <form method = "POST" class = "form-register" id = "form-login">
+                    <div class = "mb-3">
+                      {{ form.username.label() }}
+                      {{ form.username(class = "form-control", placeholder = "username") }}
+
+
+                    </div>
+
+                    <div class = "mb-3">
+                      {{ form.email_address.label() }}
+                    {{ form.email_address(class = "form-control", placeholder = "email address") }}
+
+
+                    </div>
+
+                    <div class = "mb-3">
+
+                    {{ form.password.label() }}
+                    {{ form.password(class = "form-control", placeholder = "Create your password") }}
+
+
+                    </div>
+                    <div class = "mb-3">
+                      {{ form.comfirm_password.label() }}
+                      {{ form.comfirm_password(class = "form-control", placeholder = "Comfirm your password") }}
+
+
+                    </div>
+                    <br>
+
+                    {{form.submit(class = 'btn btn-primary')}}
+
+
+
+
+
+
+                  </form>
+
+            </div>
+
+        </main>
+    </section>
+  {% endblock %}

@@ -1,0 +1,225 @@
+.nav-text{
+    color: #ed6961;
+    font-weight: bold;
+    font-size:24px;
+
+}
+
+nav .navbar-nav li a{
+    color:#ed6961!important;
+    }
+
+
+
+.sologan {
+
+
+    position: absolute;
+    color: #ed6961;
+    bottom: 35px;
+    left: 140px;
+    font-weight: bold;
+    font-size:20px;
+  }
+
+.cover-image{
+
+    position: relative;
+    overflow:hidden;
+
+    object-fit: cover;
+}
+
+.text{
+    font-family: 'Nunito';
+    font-size: 20px;
+
+}
+
+.title{
+    color: #ed6961;
+    font-family: 'Alegreya';
+    margin: 10px;
+    font-weight: bold;
+}
+
+.text-center{
+    padding: 10px;
+}
+
+.text:first-child{
+    padding:10px;
+
+}
+
+.card-text{
+    font-family: 'Nunito Sans';
+    font-size: 20px;
+    font-weight: light;
+}
+
+.card-title{
+    font-family: 'Nunito Sans';
+    color: #ed6961;
+
+
+}
+
+.card {
+    margin: 0 auto; Added
+    float: none; /* Added */
+    margin-bottom: 20px; /* Added */
+}
+
+.nav-item{
+    list-style: none;
+}
+
+.cover{
+    opacity:0.8;
+}
+
+.my-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+
+  .my-toggler.navbar-toggler {
+    border-color: rgb(237,105,97);
+  }
+
+  .img-fluid{
+      max-width: 100%;
+     height: auto;
+  }
+
+  .home-card {
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+}
+
+@media (min-width: 1000px) {
+
+    .desk-view{
+        margin-right:200px;
+
+
+    }
+    .desk-nav{
+        width: 850px;
+    }
+
+
+ }
+
+
+ .social-post {
+     border-radius: 0;
+     background-color: #ffffff;
+     border: 1px solid #ddd;
+     padding:10px;
+ }
+
+
+
+ .social-post a,
+ .social-post a:hover,
+ .social-post a:active,
+ .social-post a:focus {
+     text-decoration: none;
+ }
+
+
+
+ .social-post .list-inline li {
+
+     display:inline;
+ }
+
+
+ .social-post .list-inline li.active a {
+     color: #222222;
+     font-weight: bold;
+ }
+
+ .social-post .form-control {
+     width: 100%;
+     min-height: 100px;
+     border: none;
+     border-radius: 0;
+     box-shadow: none;
+ }
+
+
+
+
+
+ .social-post .list-inline li + li {
+     margin-left: 10px;
+ }
+
+
+
+
+ .pull-right{
+     float:right;
+     padding:10px;
+ }
+
+ #btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+
+  }
+
+/*
+  .report-form{
+    margin: 0 auto;
+
+    vertical-align:middle;
+  } */
+
+  #form-login {
+    left      : 50%;
+    top       : 50%;
+    position  : absolute;
+    transform : translate(-50%, -50%);
+}
+
+/* .thanks {
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+} */
+
+.thanks-img {
+
+    /* position:fixed; */
+
+
+
+
+
+
+
+
+
+
+
+
+   }
+
+
+   #thanks{
+    color: #ed6961;
+
+    left      : 50%;
+    top       : 50%;
+    /* position  : absolute; */
+    transform : translate(-50%, -50%);
+
+   }

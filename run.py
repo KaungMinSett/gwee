@@ -1,3 +1,4 @@
-from reviewPost import app
+"""Flask main run"""
+from review_post import app
 
-app.run(debug = True)
+app.run(debug=True)
