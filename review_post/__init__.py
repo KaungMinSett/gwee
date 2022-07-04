@@ -12,7 +12,5 @@ path = os.environ.get("DATABASE_URL")
 app.config["SQLALCHEMY_DATABASE_URI"] = f'postgresql+psycopg2://{user_name}:{password}@{path}'
 app.config["SECRET_KEY"] = os.environ.get("GWEE_DATABASE_KEY","")
 
-# conn_string = "host='localhost' dbname='review_posts' user='postgres' password='1337514' port=5432"
-# conn = psycopg2.connect(conn_string)
 
 db = SQLAlchemy(app)
