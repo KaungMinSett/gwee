@@ -1,8 +1,9 @@
-
+flask-bcrypt==1.0.1
 Flask==2.1.2
 Flask-SQLAlchemy==2.5.1
 Flask-WTF==1.0.1
 psycopg2-binary==2.9.3
 python-dotenv==0.20.0
 SQLAlchemy==1.4.39
-
+flask-migrate
+flask-login=0.6.1
