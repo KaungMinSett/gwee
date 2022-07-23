@@ -1,7 +1,7 @@
 # Gwee
 <html>
  <div align = "center"> 
-  <img src = "![Gwee gwee](/review_post/static/img/Gwee_gwee.png)">
+  <img src = "(/review_post/static/img/Gwee_gwee.png)">
   </div>
 
 This is my final project for [Cs50x,introduction to computer science course](https://learning.edx.org/course/course-v1:HarvardX+CS50+X/home). 
