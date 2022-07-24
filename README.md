@@ -12,7 +12,8 @@ This is my final project for [Cs50x,introduction to computer science course](htt
 - How to setup the Project
  1. pip install -r requirements.txt
  2. install PostgreSQL
- 3. Create your own secretkey, Database username, Database password, Database URl
+ 3. Create your own secretkey, Database username, Database password, Database URl in .env file
+ 4. python run.py
 
 <hr>
 
