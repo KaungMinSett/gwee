@@ -3,6 +3,8 @@
 from flask_wtf import FlaskForm
 from wtforms import PasswordField, StringField, SubmitField
 from wtforms.validators import  DataRequired
+from flask_wtf.file import FileField, FileAllowed
+from review_post import photos
 
 
 class RegisterForm(FlaskForm):
@@ -18,3 +20,18 @@ class LoginForm(FlaskForm):
     username = StringField(label='User Name:', validators=[DataRequired()])
     password = PasswordField(label='Password:', validators=[DataRequired()])
     submit = SubmitField(label='Sign in')
+
+
+class PostForm(FlaskForm):
+    """Post form for admin user"""
+ 
+    
+    description = StringField(label='Create another post?', validators=[DataRequired()])
+    
+    photo = FileField(
+        validators = [
+            FileAllowed(photos, 'Only images are allowed')
+            ]
+    )
+
+    submit = SubmitField('Post')

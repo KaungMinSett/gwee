@@ -1,12 +1,14 @@
 """This contains all routes information for gwee"""
 
-from flask import render_template, flash, redirect, url_for, request
-from review_post import app
-# from review_post import Post
-from review_post.models import Admin
-from review_post.forms import RegisterForm, LoginForm
+from flask import render_template, flash, redirect, send_from_directory, url_for, session
+from review_post import app, photos
+#
+from review_post.models import Admin, Post
+from review_post.forms import PostForm, RegisterForm, LoginForm
+
+
 from review_post import db
-from flask_login import login_user
+from flask_login import login_user, login_required
 
 
 @app.route("/")
@@ -18,7 +20,7 @@ def index():
 @app.route("/home")
 def home():
     """home page of web app"""
-    # posts = Post.query_all()
+    posts = Post.query_all()
     return render_template("home.html")
 
 
@@ -39,16 +41,43 @@ def login():
             ):
             
             login_user(attempt_admin)
+            session.permanent = True
             flash(f'Success! you are logged in as :{attempt_admin.username}', category='success')
-            return redirect(url_for('home'))
+            return redirect(url_for('adminpanel'))
         else:
             
             flash('Username and password are not match! Please try again', category='danger')
     return render_template("login.html", form=form)
     
-    
-    
+@app.route('/static/img/<filename>')
+def get_image(filename):
+    return send_from_directory(app.config['UPLOADED_PHOTOS_DEST'], filename)
 
+    
+@app.route('/adminpanel', methods =['GET', 'POST'])
+@login_required
+def adminpanel():
+    """Admin panel"""
+    form = PostForm()
+    if form.validate_on_submit():
+
+        description = form.description.data
+        
+        filename = photos.save(form.photo.data)
+        file_url = url_for('get_image', filename = filename)
+        
+        post = Post(description = description,image_url = file_url)
+        db.session.add(post)
+        db.session.commit()
+    else:
+        file_url = None
+
+   
+
+   
+
+
+    return render_template("adminpanel.html", form = form, file_url = file_url)
 
 
 @app.route("/register")
