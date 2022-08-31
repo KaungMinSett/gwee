@@ -29,5 +29,6 @@ This is my final project for [Cs50x,introduction to computer science course](htt
 - [x] Website Layout
 - [x] Admin Login
 - [x] session timeout 
-- [ ] Admin Post, edit, Delete
+- [x] Admin Post
+- [ ] Admin delete
 </html>
