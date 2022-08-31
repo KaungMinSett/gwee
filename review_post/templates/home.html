@@ -16,6 +16,7 @@
 </head>
 
 <body>
+ 
 
   <section>
     <nav class="navbar navbar-light bg-light sticky-top navbar-expand-lg" style="margin-bottom:10px ">
@@ -68,105 +69,115 @@
       <div class="tab-content" id="pills-tabContent">
 
         <div class="tab-pane fade show column  active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+          {% for post in posts %}
           <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8 ">
-            <img src="/static/img/icecream.jpg" class="card-img-top home-card" alt="...">
-            <div class="card-body">
-              <div class="tag">
-                <h5 class="card-title">Card title</h5>
-                <div>
-                  <span class="badge rounded-pill bg-danger">trending</span>
-                </div>
-              </div>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non tincidunt dolor.
-                Vivamus at odio pretium, bibendum metus sit amet, semper tellus. Suspendisse dignissim at ex a
-                facilisis. Proin vitae scelerisque lorem. Nullam at faucibus augue, id luctus lectus. In magna nunc,
-                mollis ut diam id, sollicitudin faucibus nisi. Aenean non finibus risus. Interdum et malesuada fames ac
-                ante ipsum primis in faucibus. Nunc ornare semper neque, et hendrerit mi sagittis et. Maecenas orci
-                ligula, venenatis eu mattis vel, rhoncus eu tortor. Suspendisse eu bibendum lectus. Nunc ac commodo est,
-                sed blandit arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                curae</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-          <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-            <img src="/static/img/vegetables.jpg" class="card-img-top home-card" alt="...">
-            <div class="card-body">
-              <div class="tag">
-                <h5 class="card-title">Card title</h5>
-                <div>
-                  <span class="badge rounded-pill bg-danger">trending</span>
-                  <span class="badge rounded-pill bg-danger">promotion</span>
-                </div>
-              </div>
+          
 
+            <img src="{{url_for('static', filename='img/' + post.image_url)}}" class="card-img-top home-card" alt="...">
+
+
+            <div class="card-body">
+
+              <div class="tag">
+                <h5 class="card-title">Card title</h5>
+                <div>
+                  <span class="badge rounded-pill bg-danger">trending</span>
+                </div>
+              </div>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                 content.</p>
               <a href="#" class="btn btn-primary">Go somewhere</a>
+             
             </div>
+           
           </div>
+          {% endfor %}
+   
 
         </div>
         <div class="tab-pane fade" id="pills-trend" role="tabpanel" aria-labelledby="pills-trend-tab">
-          <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-            <img src="/static/img/lathr.webp" class="card-img-top home-card" alt="...">
+
+          {% for trendpost in trendPosts %}
+          <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8 ">
+          
+
+            <img src="{{url_for('static', filename='img/' + trendpost.image_url)}}" class="card-img-top home-card" alt="...">
+
+
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+
+              <div class="tag">
+                <h5 class="card-title">{{ trendpost.owner }}</h5>
+                <div>
+                  
+                  <span class="badge rounded-pill bg-danger">{{ trendpost.tag }}</span>
+                 
+                </div>
+              </div>
+              <p class="card-text">{{ trendpost.description }}</p>
+              <a>{{ trendpost.time_created }}</a>
+             
             </div>
+           
           </div>
-          <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-            <img src="/static/img/seoulmm.jpg" class="card-img-top home-card" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+          
+          {% endfor %}
 
         </div>
         <div class="tab-pane fade" id="pills-promotion" role="tabpanel" aria-labelledby="pills-promotion-tab">
-          <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-            <img src="/static/img/promo.png" class="card-img-top home-card" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-          <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-            <img src="/static/img/grab_promo.jpg" class="card-img-top home-card" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+          {% for promopost in promoPosts %}
+          <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8 ">
+          
 
+            <img src="{{url_for('static', filename='img/' + promopost.image_url)}}" class="card-img-top home-card" alt="...">
+
+
+            <div class="card-body">
+
+              <div class="tag">
+                <h5 class="card-title">{{ promopost.owner }}</h5>
+                <div>
+                  
+                  <span class="badge rounded-pill bg-danger">{{ promopost.tag }}</span>
+                 
+                </div>
+              </div>
+              <p class="card-text">{{ promopost.description }}</p>
+              <a>{{ promopost.time_created }}</a>
+             
+            </div>
+           
+          </div>
+          
+          {% endfor %}
         </div>
         <div class="tab-pane fade" id="pills-alert" role="tabpanel" aria-labelledby="pills-alert-tab">
-          <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-            <img src="/static/img/fly-coffee.jpg" class="card-img-top home-card" alt="...">
+      
+          {% for alertpost in alertPosts %}
+          <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8 ">
+          
+
+            <img src="{{url_for('static', filename='img/' + alertpost.image_url)}}" class="card-img-top home-card" alt="...">
+
+
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+
+              <div class="tag">
+                <h5 class="card-title">{{ alertpost.owner }}</h5>
+                <div>
+                  
+                  <span class="badge rounded-pill bg-danger">{{ alertpost.tag }}</span>
+                 
+                </div>
+              </div>
+              <p class="card-text">{{ alertpost.description }}</p>
+              <a>{{ alertpost.time_created }}</a>
+             
             </div>
+           
           </div>
-          <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-            <img src="/static/img/alert-noodle.jpg" class="card-img-top home-card" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+          
+          {% endfor %}
         </div>
       </div>
     </main>

@@ -1,7 +1,8 @@
 """This contains all the features related to form"""
 
+
 from flask_wtf import FlaskForm
-from wtforms import PasswordField, StringField, SubmitField
+from wtforms import PasswordField, StringField, SubmitField, TextAreaField, SelectField
 from wtforms.validators import  DataRequired
 from flask_wtf.file import FileField, FileAllowed
 from review_post import photos
@@ -26,12 +27,13 @@ class PostForm(FlaskForm):
     """Post form for admin user"""
  
     
-    description = StringField(label='Create another post?', validators=[DataRequired()])
+    description = TextAreaField(label='Create another post?', validators=[DataRequired()])
     
     photo = FileField(
         validators = [
             FileAllowed(photos, 'Only images are allowed')
             ]
     )
+    tag = SelectField(u'tag', choices=[('Trending'),('Promotion'),('Alert')])
 
     submit = SubmitField('Post')

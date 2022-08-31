@@ -1,47 +1,42 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
-<html lang="en">
-    <head>
-        <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+{% block content %}
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
-
-        <link href="/static/styles.css" rel="stylesheet">
-
-
-        <title>Gwee Gwee</title>
-    </head>
 <body>
 
-<section>
-<nav class="navbar navbar-light bg-light sticky-top navbar-expand-lg" style="margin-bottom:10px ">
+  <section>
+    <nav class="navbar navbar-light bg-light sticky-top navbar-expand-lg" style="margin-bottom:10px ">
       <div class="container-fluid">
-        <a  class="navbar-brand" href="{{ url_for('index')}}">
-          <img src = "/static/img/Gwee_gwee.png"  alt = "Gwee Gwee logo" width="230" height = "75" >
-      </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="{{ url_for('index')}}">
+          <img src="/static/img/Gwee_gwee.png" alt="Gwee Gwee logo" width="230" height="75">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse desk-view nav-justified navbar-collapse" id="navbarScroll">
           <ul class="nav flex-fill desk-nav nav-pills" id="pills-tab" role="tablist">
             <li class="nav-item flex-fill" role="presentation">
-              <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+              <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+                type="button" role="tab" aria-controls="pills-home" aria-selected="true">
                 <i class="fa-solid fa-house"></i>
               </button>
             </li>
             <li class="nav-item flex-fill" role="presentation">
-              <button class="nav-link" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-trend" type="button" role="tab" aria-controls="pills-trend" aria-selected="false">
+              <button class="nav-link" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-trend"
+                type="button" role="tab" aria-controls="pills-trend" aria-selected="false">
                 <i class="fa-solid fa-chart-simple"></i>
               </button>
             </li>
             <li class="nav-item flex-fill" role="presentation">
-              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-promotion" type="button" role="tab" aria-controls="pills-promotion" aria-selected="true">
+              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-promotion"
+                type="button" role="tab" aria-controls="pills-promotion" aria-selected="true">
                 <i class="fa-solid fa-percent"></i>
               </button>
             </li>
             <li class="nav-item flex-fill" role="presentation">
-              <button class="nav-link " id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-alert" type="button" role="tab" aria-controls="pills-alert" aria-selected="false">
+              <button class="nav-link " id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-alert"
+                type="button" role="tab" aria-controls="pills-alert" aria-selected="false">
                 <i class="fa-solid fa-bullhorn"></i>
               </button>
             </li>
@@ -53,157 +48,163 @@
     </nav>
 
     <main>
-      {# hidden floating action button #}
+
       <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top">
         <i class="fas fa-arrow-up"></i>
       </button>
-      
 
-     
+
+
       <div class="tab-content" id="pills-tabContent">
-
-      
-              <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-                  <div class="social-post justify-content-center">
-              <form method="post" enctype="multipart/form-data" action="{{ url_for('adminpanel') }}">
-                {{ form.hidden_tag() }}
-                {% for error in form.photo.errors %}
-                  <span style = "color: red;">{{ error }}</span>
-
-                {% endfor %}
-
-                <div class = "row justify-content-center">
-                  <div class = "col-auto">
-                    {{ form.photo(class = "form-control")}}
+        {% include 'messages.html' %}
 
 
-                  </div>
-                  <div class = "col-auto">
-                    {{ form.description(class = "form-control", placeholder = "Create another post?")}}
-                  </div>
-                  <div class = "col-auto">
+        <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
+          {% from "_formhelpers.html" import render_field %}
+          <div class="social-post container">
+            <div class="row">
+              
+              
+                
+                <form method="post" enctype="multipart/form-data" action="{{ url_for('adminpanel') }}">
+                  {{ form.hidden_tag() }}
+                  <div>
+                    {{ render_field(form.description, class = "form-control", rows=10, placeholder = "Create another post?") }}
+                    {{ render_field(form.tag, class="form-control")}}
+
+                    {{ render_field(form.photo, class="form-control") }}
+                    
+
+
+
                     {{ form.submit(class="btn btn-danger") }}
 
                   </div>
+
+                </form>
+              
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="tab-pane fade show column  active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+          {% for post in posts %}
+          <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8 ">
+          
+
+            <img src="{{url_for('static', filename='img/' + post.image_url)}}" class="card-img-top home-card" alt="...">
+
+
+            <div class="card-body">
+
+              <div class="tag">
+                <h5 class="card-title">{{ post.owner }}</h5>
+                <div>
+                  {% if post.tag%}
+                  <span class="badge rounded-pill bg-danger">{{ post.tag }}</span>
+                  {% endif %}
                 </div>
-
-                 
-                
-                
-                     
-
-                
-               
-                 
-
-
-                  
-                      
-                  
-                 
-              </form>
-              {% if file_url %}
-              
-              <div class = 'mt-5'>
-                <img src = "{{ file_url }}" style="width: 400px" >
               </div>
-              {% endif %}
-              
+              <p class="card-text">{{ post.description }}</p>
+              <a>{{ post.time_created }}</a>
+             
+            </div>
            
-                  </div>
-              </div>
-        
+          </div>
+          
+          {% endfor %}
+        </div>
+         
 
 
-          <div class="tab-pane fade show column  active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-            <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8 ">
-              
-              <img src="/static/img/icecream.jpg" class="card-img-top home-card" alt="...">
-              
 
-              <div class="card-body">
-               
-                <div class="tag">
-                  <h5 class="card-title">Card title</h5>
-                  <div>
-                    <span class="badge rounded-pill bg-danger">trending</span>
-                  </div>
+        <div class="tab-pane fade" id="pills-trend" role="tabpanel" aria-labelledby="pills-trend-tab">
+          {% for trendpost in trendPosts %}
+          <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8 ">
+          
+
+            <img src="{{url_for('static', filename='img/' + trendpost.image_url)}}" class="card-img-top home-card" alt="...">
+
+
+            <div class="card-body">
+
+              <div class="tag">
+                <h5 class="card-title">{{ trendpost.owner }}</h5>
+                <div>
+                  
+                  <span class="badge rounded-pill bg-danger">{{ trendpost.tag }}</span>
+                 
                 </div>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
+              <p class="card-text">{{ trendpost.description }}</p>
+              <a>{{ trendpost.time_created }}</a>
+             
             </div>
-            <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-              <img src="/static/img/vegetables.jpg" class="card-img-top home-card" alt="...">
-              <div class="card-body">
-                <div class="tag">
-                  <h5 class="card-title">Card title</h5>
-                  <div>
-                    <span class="badge rounded-pill bg-danger">trending</span>
-                  </div>
+           
+          </div>
+          
+          {% endfor %}
+      
+
+        </div>
+        <div class="tab-pane fade" id="pills-promotion" role="tabpanel" aria-labelledby="pills-promotion-tab">
+          {% for promopost in promoPosts %}
+          <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8 ">
+          
+
+            <img src="{{url_for('static', filename='img/' + promopost.image_url)}}" class="card-img-top home-card" alt="...">
+
+
+            <div class="card-body">
+
+              <div class="tag">
+                <h5 class="card-title">{{ promopost.owner }}</h5>
+                <div>
+                  
+                  <span class="badge rounded-pill bg-danger">{{ promopost.tag }}</span>
+                 
                 </div>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
+              <p class="card-text">{{ promopost.description }}</p>
+              <a>{{ promopost.time_created }}</a>
+             
             </div>
+           
+          </div>
+          
+          {% endfor %}
+          
 
-          </div>
-          <div class="tab-pane fade" id="pills-trend" role="tabpanel" aria-labelledby="pills-trend-tab">
-            <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-              <img src="/static/img/lathr.webp" class="card-img-top home-card" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-            <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-              <img src="/static/img/seoulmm.jpg" class="card-img-top home-card" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
+        </div>
+        <div class="tab-pane fade" id="pills-alert" role="tabpanel" aria-labelledby="pills-alert-tab">
+          {% for alertpost in alertPosts %}
+          <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8 ">
+          
 
-          </div>
-          <div class="tab-pane fade" id="pills-promotion" role="tabpanel" aria-labelledby="pills-promotion-tab">
-            <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-              <img src="/static/img/promo.png" class="card-img-top home-card" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-            <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-              <img src="/static/img/grab_promo.jpg" class="card-img-top home-card" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
+            <img src="{{url_for('static', filename='img/' + alertpost.image_url)}}" class="card-img-top home-card" alt="...">
 
-          </div>
-          <div class="tab-pane fade" id="pills-alert" role="tabpanel" aria-labelledby="pills-alert-tab">
-            <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-              <img src="/static/img/fly-coffee.jpg" class="card-img-top home-card" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+
+            <div class="card-body">
+
+              <div class="tag">
+                <h5 class="card-title">{{ alertpost.owner }}</h5>
+                <div>
+                  
+                  <span class="badge rounded-pill bg-danger">{{ alertpost.tag }}</span>
+                 
+                </div>
               </div>
+              <p class="card-text">{{ alertpost.description }}</p>
+              <a>{{ alertpost.time_created }}</a>
+             
             </div>
-            <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-              <img src="/static/img/alert-noodle.jpg" class="card-img-top home-card" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
+           
           </div>
+          
+          {% endfor %}
+        </div>
       </div>
     </main>
 
@@ -216,10 +217,5 @@
 
 
 </body>
+{% endblock %}
 
-<script src="https://kit.fontawesome.com/5dbfa82225.js" crossorigin="anonymous"></script>
-<script src = "/static/style.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-
-<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
