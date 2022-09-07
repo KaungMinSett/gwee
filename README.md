@@ -30,5 +30,5 @@ This is my final project for [Cs50x,introduction to computer science course](htt
 - [x] Admin Login
 - [x] session timeout 
 - [x] Admin Post
-- [ ] Admin delete
+- [x] Admin delete
 </html>
