@@ -104,14 +104,27 @@ def adminpanel():
     return render_template("adminpanel.html", form = form, posts = posts, promoPosts = promo_posts, trendPosts = trend_posts, alertPosts = alert_posts)
 
 
-@app.route("/register")
-def register():
-    """Register page"""
-    # form = RegisterForm()
-    # if form.validate_on_submit():
-    #     user_to_create = User(
+@app.route("/delete/<int:post_id>")
+def delete(post_id):
+    post = Post.query.get_or_404(post_id)
+    try:
+        os.unlink(os.path.join(current_app.root_path,'static/images/'+ post.image))
+        db.session.delete(post)
+    except:
+        db.session.delete(post)
+    flash('Post has deleted ','success')
+    db.session.commit()
+    return redirect(url_for('adminpanel'))
+
+# @app.route("/register")
+# def register():
+#     """Register page"""
+#     # form = RegisterForm()
+#     # if form.validate_on_submit():
+#     #     user_to_create = User(
 
 
-    #     )
+#     #     )
+#
 
 
