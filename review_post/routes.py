@@ -68,15 +68,15 @@ def login():
 # def get_image(filename):
 #     return send_from_directory(app.config['UPLOADED_PHOTOS_DEST'], filename)
 
-    
+ROWS_PER_PAGE = 6
 @app.route('/adminpanel', methods =['GET', 'POST'])
 @login_required
 def adminpanel():
     """Admin panel"""
     form = PostForm()
    
-        
- 
+    page = request.args.get('page',1, type = int)
+
  
     if form.validate_on_submit():
 
@@ -95,8 +95,11 @@ def adminpanel():
     
 
 
-    posts = Post.query.order_by(Post.id.desc()).all()
-    promo_posts = Post.query.filter(Post.tag == "Promotion").all()
+    posts = Post.query.order_by(Post.id.desc()).paginate(page = page, per_page = ROWS_PER_PAGE)
+    
+
+    promo_posts = Post.query.filter(Post.tag == "Promotion").paginate(page = page, per_page = ROWS_PER_PAGE)
+    
     trend_posts = Post.query.filter(Post.tag == "Trending").all()
     alert_posts = Post.query.filter(Post.tag == "Alert").all()
 
