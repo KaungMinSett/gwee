@@ -91,9 +91,10 @@ def adminpanel():
         db.session.add(post)
         db.session.commit()
         flash('Your post has been submitted','success')
+        return redirect(url_for('adminpanel'))
     
 
-    
+
     posts = Post.query.order_by(Post.id.desc()).all()
     promo_posts = Post.query.filter(Post.tag == "Promotion").all()
     trend_posts = Post.query.filter(Post.tag == "Trending").all()
@@ -108,11 +109,11 @@ def adminpanel():
 def delete(post_id):
     post = Post.query.get_or_404(post_id)
     try:
-        os.unlink(os.path.join(current_app.root_path,'static/images/'+ post.image))
+        os.remove(os.path.join(app.root_path,'static/img/'+ post.image_url))
         db.session.delete(post)
     except:
         db.session.delete(post)
-    flash('Post has deleted ','success')
+    flash('Post has been deleted ','success')
     db.session.commit()
     return redirect(url_for('adminpanel'))
 

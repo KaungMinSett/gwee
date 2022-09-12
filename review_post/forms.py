@@ -1,6 +1,7 @@
 """This contains all the features related to form"""
 
 
+from email.policy import default
 from flask_wtf import FlaskForm
 from wtforms import PasswordField, StringField, SubmitField, TextAreaField, SelectField
 from wtforms.validators import  DataRequired
@@ -34,6 +35,6 @@ class PostForm(FlaskForm):
             FileAllowed(photos, 'Only images are allowed')
             ]
     )
-    tag = SelectField(u'tag', choices=[('Trending'),('Promotion'),('Alert')])
+    tag = SelectField(u'tag', choices=[('Trending'),('Promotion'),('Alert'),(None)])
 
     submit = SubmitField('Post')

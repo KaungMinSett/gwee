@@ -6,9 +6,9 @@
 {% with messages = get_flashed_messages(with_categories=true) %}
 {% if messages %}
 {% for category, message in messages %}
-<div class="alert alert-{{ category }}">
-    <button type="button" class="m1-2 mb-1" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
+<div class="alert alert-{{ category }} alert-dismissible fade show text-center">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        
     </button>
     {{ message }}
 </div>
