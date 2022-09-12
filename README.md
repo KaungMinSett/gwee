@@ -31,4 +31,5 @@ This is my final project for [Cs50x,introduction to computer science course](htt
 - [x] session timeout 
 - [x] Admin Post
 - [x] Admin delete
+- [ ] Pagination
 </html>
