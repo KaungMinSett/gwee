@@ -105,7 +105,7 @@
                   {% if post.tag%}
                   <span class="badge rounded-pill bg-danger">{{ post.tag }}</span>
                   {% endif %}
-                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#del{{post.id}}"><i
+                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#delPost"><i
                       class="fa-sharp fa-solid fa-trash"></i></button>
                 </div>
               
@@ -119,7 +119,7 @@
 
           </div>
             <!-- The Modal -->
-            <div class="modal" id="del{{post.id}}">
+            <div class="modal" id="delPost">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <!-- Modal Header -->
@@ -160,7 +160,7 @@
                 <div>
 
                   <span class="badge rounded-pill bg-danger">{{ trendpost.tag }}</span>
-                  <button type="button" class="btn btn-light" data-bs-toggle="trendmodal" data-bs-target="#del{{trendpost.id}}"><i
+                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#delTrend"><i
                     class="fa-sharp fa-solid fa-trash"></i></button>
 
                 </div>
@@ -172,7 +172,8 @@
 
           </div>
            <!-- The Modal -->
-           <div class="trendmodal fade" id="del{{trendpost.id}}">
+           <div class="modal fade" id="delTrend">
+          
             <div class="modal-dialog">
               <div class="modal-content">
                 <!-- Modal Header -->
@@ -210,7 +211,7 @@
                 <div>
 
                   <span class="badge rounded-pill bg-danger">{{ promopost.tag }}</span>
-                  <button type="button" class="btn btn-light" data-bs-toggle="promomodal" data-bs-target="#del{{promopost.id}}"><i
+                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#delPromo"><i
                     class="fa-sharp fa-solid fa-trash"></i></button>
 
                 </div>
@@ -222,7 +223,7 @@
 
           </div>
            <!-- The Modal -->
-           <div class="promomodal" id="del{{promopost.id}}">
+           <div class="modal" id="delPromo">
             <div class="modal-dialog">
               <div class="modal-content">
                 <!-- Modal Header -->
@@ -261,6 +262,8 @@
                 <div>
 
                   <span class="badge rounded-pill bg-danger">{{ alertpost.tag }}</span>
+                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#delAlert"><i
+                    class="fa-sharp fa-solid fa-trash"></i></button>
 
                 </div>
               </div>
@@ -269,6 +272,24 @@
 
             </div>
 
+          </div>
+          <!-- The Modal -->
+          <div class="modal" id="delAlert">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h5 class="modal-title text-danger"> Are you sure you want to delete this post? </h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+               
+                <div class="modal-footer">
+                  <div class="mr-auto"> <a href="delete/{{ alertpost.id }}" class="btn btn-danger btn-sm"> Delete </a>
+                  </div>
+                  <button type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
           </div>
 
           {% endfor %}
