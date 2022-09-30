@@ -201,22 +201,7 @@ nav .navbar-nav li a{
     overflow-x: hidden;
 } */
 
-.thanks-img {
 
-    /* position:fixed; */
-
-
-
-
-
-
-
-
-
-
-
-
-   }
 
 
    #thanks{
@@ -231,5 +216,10 @@ nav .navbar-nav li a{
 
 
    .fa-trash{
-    color:#ed6961
+    color:#ed6961;
    }
+
+
+
+
+   

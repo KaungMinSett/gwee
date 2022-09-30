@@ -27,13 +27,17 @@ def index():
     """index page of web app"""
     return render_template("index.html")
 
-
+POSTS_PER_PAGE = 5
 @app.route("/home")
 def home():
     """home page of web app"""
-    posts = Post.query.order_by(Post.id.desc()).all()
+    page = request.args.get('page',1, type = int)
+    trendpage = request.args.get('trendpage',1, type = int)
+    posts = Post.query.order_by(Post.id.desc()).paginate(page = page, per_page = POSTS_PER_PAGE)
+    trend_posts = Post.query.filter(Post.tag == "Trending").order_by(Post.id.desc()).paginate(page = trendpage, per_page = POSTS_PER_PAGE)
+    
     promo_posts = Post.query.filter(Post.tag == "Promotion").all()
-    trend_posts = Post.query.filter(Post.tag == "Trending").all()
+    
     alert_posts = Post.query.filter(Post.tag == "Alert").all()
 
     return render_template("home.html", posts = posts, promoPosts = promo_posts, trendPosts = trend_posts, alertPosts = alert_posts)
@@ -68,7 +72,7 @@ def login():
 # def get_image(filename):
 #     return send_from_directory(app.config['UPLOADED_PHOTOS_DEST'], filename)
 
-ROWS_PER_PAGE = 6
+ROWS_PER_PAGE = 5
 @app.route('/adminpanel', methods =['GET', 'POST'])
 @login_required
 def adminpanel():
@@ -76,6 +80,8 @@ def adminpanel():
     form = PostForm()
    
     page = request.args.get('page',1, type = int)
+    trendpage = request.args.get('trendpage',1, type = int)
+    promopage = request.args.get('promopage',1, type = int)
 
  
     if form.validate_on_submit():
@@ -98,9 +104,9 @@ def adminpanel():
     posts = Post.query.order_by(Post.id.desc()).paginate(page = page, per_page = ROWS_PER_PAGE)
     
 
-    promo_posts = Post.query.filter(Post.tag == "Promotion").paginate(page = page, per_page = ROWS_PER_PAGE)
+    promo_posts = Post.query.filter(Post.tag == "Promotion").order_by(Post.id.desc()).paginate(page = promopage, per_page = ROWS_PER_PAGE)
     
-    trend_posts = Post.query.filter(Post.tag == "Trending").all()
+    trend_posts = Post.query.filter(Post.tag == "Trending").order_by(Post.id.desc()).paginate(page = trendpage, per_page = ROWS_PER_PAGE)
     alert_posts = Post.query.filter(Post.tag == "Alert").all()
 
    
