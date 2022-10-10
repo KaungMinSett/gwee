@@ -21,6 +21,7 @@
 - Database      : PostgreSQL
 - SQL toolkit   : SQLAlchemy
 - CSS framework : Bootstrap
+- JavaScript Library : JQuery
 - Web framework : Flask
 
 
@@ -29,7 +30,8 @@
 - [x] Website Layout
 - [x] Admin Login
 - [x] session timeout 
+- [x] photo upload
 - [x] Admin Post
-- [x] Admin delete
+- [x] Admin  Post delete
 - [x] Pagination
 </html>
