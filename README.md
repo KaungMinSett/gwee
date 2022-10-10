@@ -31,5 +31,5 @@
 - [x] session timeout 
 - [x] Admin Post
 - [x] Admin delete
-- [ ] Pagination
+- [x] Pagination
 </html>
