@@ -28,13 +28,13 @@ class PostForm(FlaskForm):
     """Post form for admin user"""
  
     
-    description = TextAreaField(label='Create another post?', validators=[DataRequired()])
+    description = TextAreaField( validators=[DataRequired()])
     
     photo = FileField(
         validators = [
             FileAllowed(photos, 'Only images are allowed')
             ]
     )
-    tag = SelectField(u'tag', choices=[('Trending'),('Promotion'),('Alert'),(None)])
+    tag = SelectField( choices=[('Trend', 'Trending'), ('Promo', 'Promotion'), ('Alert', 'Issue')])
 
     submit = SubmitField('Post')

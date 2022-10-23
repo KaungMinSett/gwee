@@ -218,8 +218,52 @@ nav .navbar-nav li a{
    .fa-trash{
     color:#ed6961;
    }
+   .fa-upload{
+    color:#ed6961;
+
+   }
+   .nav-pills .nav-item .nav-link {
+    color:#ed6961;
+    
+  }
+
+  .nav-pills .nav-item .nav-link.active {
+    color:white;
+    background-color:#ed6961 ;
+  }
 
 
+  .upload-button {
+    /* Used to position the input */
+    position: relative;
 
+    /* Center the content */
+    align-items: center;
+    display: flex;
+    width:80px;
+    
 
-   
+    /* Border */
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.upload-button__input {
+    /* Take the full size */
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    /* Make it transparent */
+    opacity: 0;
+}
+
+.upload-button__icon {
+    
+    margin-left: 35%;
+    
+}
+
