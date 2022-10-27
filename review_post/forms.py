@@ -35,6 +35,6 @@ class PostForm(FlaskForm):
             FileAllowed(photos, 'Only images are allowed')
             ]
     )
-    tag = SelectField( choices=[('Trend', 'Trending'), ('Promo', 'Promotion'), ('Alert', 'Issue')])
+    tag = SelectField( choices=[('Trending', 'Trending'), ('Promotion', 'Promotion'), ('Alert', 'Alert')])
 
     submit = SubmitField('Post')

@@ -142,7 +142,7 @@
               {% if post.tag%}
               <span class="badge rounded-pill bg-danger">{{ post.tag }}</span>
               {% endif %}
-              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#delPost"><i
+              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#del{{post.id}}"><i
                   class="fa-sharp fa-solid fa-trash"></i></button>
             </div>
 
@@ -156,7 +156,7 @@
 
       </div>
       <!-- The Modal -->
-      <div class="modal" id="delPost">
+      <div class="modal" id="del{{post.id}}">
         <div class="modal-dialog">
           <div class="modal-content">
             <!-- Modal Header -->
@@ -230,7 +230,7 @@
             <div>
 
               <span class="badge rounded-pill bg-danger">{{ trendpost.tag }}</span>
-              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#delTrend"><i
+              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#del{{trendpost.id}}"><i
                   class="fa-sharp fa-solid fa-trash"></i></button>
 
             </div>
@@ -242,7 +242,7 @@
 
       </div>
       <!-- The Modal -->
-      <div class="modal fade" id="delTrend">
+      <div class="modal fade" id="del{{trendpost.id}}">
 
         <div class="modal-dialog">
           <div class="modal-content">
@@ -313,7 +313,7 @@
             <div>
 
               <span class="badge rounded-pill bg-danger">{{ promopost.tag }}</span>
-              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#delPromo"><i
+              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#del{{promopost.id}}"><i
                   class="fa-sharp fa-solid fa-trash"></i></button>
 
             </div>
@@ -325,7 +325,7 @@
 
       </div>
       <!-- The Modal -->
-      <div class="modal" id="delPromo">
+      <div class="modal" id="del{{promopost.id}}">
         <div class="modal-dialog">
           <div class="modal-content">
             <!-- Modal Header -->
@@ -367,7 +367,7 @@
             <div>
 
               <span class="badge rounded-pill bg-danger">{{ alertpost.tag }}</span>
-              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#delAlert"><i
+              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#del{{alertpost.id}}"><i
                   class="fa-sharp fa-solid fa-trash"></i></button>
 
             </div>
@@ -379,7 +379,7 @@
 
       </div>
       <!-- The Modal -->
-      <div class="modal" id="delAlert">
+      <div class="modal" id="del{{alertpost.id}}">
         <div class="modal-dialog">
           <div class="modal-content">
             <!-- Modal Header -->
