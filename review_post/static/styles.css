@@ -17,7 +17,7 @@ nav .navbar-nav li a{
     position: absolute;
     color: #ed6961;
     bottom: 35px;
-    left: 140px;
+    left: 10%;
     font-weight: bold;
     font-size:20px;
   }
@@ -267,3 +267,6 @@ nav .navbar-nav li a{
     
 }
 
+.rounded-circle{
+    aspect-ratio: 1 / 1;
+}
