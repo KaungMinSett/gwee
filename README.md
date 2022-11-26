@@ -19,6 +19,7 @@
   And manage.py file is used to create new admin through scripts. I didn't want to create admin using UI for security issues.
   And all of my used libararies and frameworks are lised in requirements.txt 
  </p>
+ 
 - How to setup the Project
  1. pip install -r requirements.txt
  2. install PostgreSQL
