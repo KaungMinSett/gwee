@@ -6,6 +6,6 @@ psycopg2-binary==2.9.3
 python-dotenv==0.20.0
 SQLAlchemy==1.4.39
 flask-migrate
-flask-login=0.6.2
-Flask-Reuploaded=1.2.0
+flask-login==0.6.2
+Flask-Reuploaded==1.2.0
 Werkzeug==2.1.0
